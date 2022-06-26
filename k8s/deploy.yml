@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: fastapi
-  strategy: {}
   template:
     metadata:
       labels:
@@ -27,4 +26,3 @@ spec:
         name: fastapi
         ports:
         - containerPort: 80
-          imagePullPolicy: IfNotPresent
