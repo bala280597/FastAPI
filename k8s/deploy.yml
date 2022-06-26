@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fastapi
+  name: fastapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: fastapi
+    spec:
+      containers:
+      - image:  bala2805/fastapi:tlsv1
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "700m"
+          limits:
+            memory: "1Gi"
+            cpu: "950m"
+        name: fastapi
+        ports:
+        - containerPort: 80
+          imagePullPolicy: IfNotPresent
