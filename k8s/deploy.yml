@@ -19,10 +19,10 @@ spec:
         resources:
           requests:
             memory: "500Mi"
-            cpu: "700m"
+            cpu: "250m"
           limits:
             memory: "1Gi"
-            cpu: "950m"
+            cpu: "500m"
         name: fastapi
         ports:
         - containerPort: 80
