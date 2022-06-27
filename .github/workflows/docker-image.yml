@@ -8,12 +8,8 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   DOCKER_USER: ${{ secrets.DOCKER_USER }}
   DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c	   # TODO: update to cluster zone
-  
 
 jobs:
   setup-build-publish-deploy:
@@ -40,17 +36,3 @@ jobs:
       run: |-
         docker push bala2805/fastapi:tlsv1
         docker rmi bala2805/fastapi:tlsv1
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v0'
-      with:
-         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
-    
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v0
-    - run: |-
-        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
- 
-    - name: Deploy
-      run: |-
-        kubectl apply -f k8s/deploy.yml
-        kubectl apply -f k8s/service.yml
