@@ -15,7 +15,7 @@ spec:
         app: fastapi
     spec:
       containers:
-      - image:  bala2805/fastapi:tlsv1
+      - image:  bala2805/fastapi:latest
         resources:
           requests:
             memory: "500Mi"
