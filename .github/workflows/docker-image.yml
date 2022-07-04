@@ -52,5 +52,8 @@ jobs:
  
     - name: Deploy
       run: |-
-        kubectl apply -f k8s/deploy.yml
-        kubectl apply -f k8s/service.yml
+        export IMAGE=bala2805/fastapi:$GITHUB_RUN_NUMBER
+        cd k8s
+        envsubst > deployment.yml
+        kubectl apply -f deployment.yml
+        kubectl apply -f service.yml
