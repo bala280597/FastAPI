@@ -35,11 +35,10 @@ jobs:
     # Build the Docker image
     - name: unittest
       run: |-
+        python -m pip install fastapi uvicorn[standard]
         python ./tests/test_main.py 
     - name: Build
       run: |-
-        python -m pip install fastapi uvicorn[standard]
-        python -m unittest
         docker build -t bala2805/fastapi:$GITHUB_RUN_NUMBER .
     - name: Publish
       run: |-
