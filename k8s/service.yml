@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: fastapi
-  name: fastapi
+    app: fastapi-3
+  name: fastapi-3
 spec:
   ports:
   - port: 80
