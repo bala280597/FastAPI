@@ -32,7 +32,8 @@ jobs:
     - name: Python unittest configuration
       run: |-
         pip install -r requirements.txt
-        unittest
+        pip install pytest
+        pytest
     
     - name: Docker configuration
       run: |-
