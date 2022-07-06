@@ -17,14 +17,11 @@ spec:
       containers:
       - image:  ${IMAGE}
         livenessProbe:
-        httpGet:
-          path: /
-          port: 80
-          httpHeaders:
-           - name: Accept
-             value: application/json
-        initialDelaySeconds: 3
-        periodSeconds: 3
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
         resources:
           requests:
             memory: "500Mi"
